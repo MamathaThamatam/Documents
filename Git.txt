@@ -1,0 +1,261 @@
+Repository - source code + version history(the changes that are happening to our files over the time)
+Local Repository-This is residing in the local system of developer
+Remote/central/Cloud Repository-This is the repository residing in cloud
+commands:
+Git init-to initialise repository(convert normal folder into a git repository)
+git status- gives the status of the repository
+git config --global user.name
+git config --global user.email
+Git lifecycle:
+1.working directory-->the place where our files are residing and where we actually work on the files
+2.staging area-->
+3.commit/local repository
+git add -adds the files to staging area
+git add filename -->songle file
+git add file1 file2 file3-->multiple files
+git add . -->all files
+git commit-commits the file to repository
+git commit -m "commit message"
+
+working tree clean-everything is tracked and recorded by git
+git log -to see the version history
+git log --oneline -->to see log in single line
+git log --stat-->to see which file is changed as part of the commit
+git log --author="username"
+
+commits should be focused on single change in a file /same change across the files
+commit message-should eb written is past tense
+ git log -n 2 -->to see recent 2 commits
+to add and commit with a single command--->git commit -am "commit message"
+
+git amend
+1)we can push the left over files into previous commit but there should be no commits after the commit in which you are trying to push
+2)edit a commit message
+
+
+
+file1
+file2
+file3
+file4
+
+
+i have commited 3 files forgot one file
+ 
+1234567 commit message
+
+i am using git amend to send the missed out file in the same commit
+git add and then git commit --amend
+
+2345678 commit message
+
+.gitignore
+
+is used to bypass files from tracking
+
+Branching:
+
+HEAD:pointer to your location(on which branch you are)
+HEAD would always be pointing to the latest commit
+
+branch creation:
+
+git branch <branch name>
+
+switching branch:
+
+git switch <bname>
+git checkout <bname>
+
+reation & switching:
+
+git chekout -b <bname>
+git switch -c <bname>
+
+branch rename:
+
+git branch -m <bname>
+
+branch deletion:
+
+soft delete: after the branch is completely merged
+
+git branch -d <bname>
+
+force delete: without merging the branch on to any other branch
+
+git branch -D <bname>
+
+to list branches:
+
+Git branch
+
+switching branches with unstaged changes:
+
+problems:
+The files may get carried along to the brach you are trying to switch
+might result in merge conflicts as well
+
+so for now better not to switch a branch with unstaged stages
+
+Merging:
+1.fast forward merge--->no extra commits on master
+scenario1:
+you are creating or changing files in your branch which are not present on master and in the meanwhile there are no extra commits on master after the point of your branch creation
+
+branch(work)-->source branch
+branch(different)-->destination branch/target branch
+we have to be on a branch which is the receiving one/destination branch
+git merge source branch name
+ merge happens without any conflicts
+2.scenario2: 
+as part of your branch you are going to change any one of the file which is already present on master, and no extra commits on master after branch creation
+merge happens without any conflicts
+
+3.scenario3:
+
+create a branch and delete one of the file present on master and try to merge it, no extra commits heppning on master
+
+ merge is happening wthout ny conflicts
+
+commit1--->commit2--->commit3--->			commita-->commitb
+				
+				commita-->commitb	
+
+we will not have merge conflicts in fast frwrd merge
+
+2) Recursive merge
+scenario1:
+you are creating or changing files in your branch which are not present on master and in the meanwhile there are extra commits on master after the point of your branch creation
+it will ask for one extra commit for merging
+
+scenario2:
+
+as part of your branch you are going to change any one of the file which is already present on master, and extra commits on master after branch creation
+
+master originalfile---abc
+branch file--ac
+master original file--abcd ac
+ merge conflicts arise
+how to solve merge conflicts: manually
+1.accept the incoming change/accept the outgoing change/accept both
+git commit
+
+scenario3:
+
+create a branch and delete one of the file present on master and try to merge it, extra commits heppning on master
+
+Stashing:
+
+we can switch to a different branch even if we have unstaged changes
+
+when there are unstged changes, we can stash those changes and then switch to a different branch
+scenario:
+i have master with 5 commits
+i created a branch feature, now my brnahc will have those 5 commits
+in branch i have created a new file and also modified one existing file, but now i dont want to commit this file, but i want to switch back to master
+now i can stash them
+what happens with stash
+when we stash, the changes which we made and not committed will be removed automatically from our wrking directory
+git will have a copy of those changes and it will be saved in a memory location called stash memory with a unique id
+stash@1-->
+now i can easily switch to a different branch
+and i have completed with my work and now i am switching back to feature branch
+how to get back my changes:
+1)stash apply: you will have a copy of it in stash memory, but the changes will be applied to your woring directory
+2)stash pop: the stash will be removed from the stash memory and applied to you working directory
+
+commands:
+git stash -to stash
+git stash apply-to reapply the changes on to WD and also have a cpy of the changes in your stash memory
+git stash pop-to reapplies the changes and also deleted the stash from memory
+
+git stash list- to see the list of available stashes in that repo
+git stash apply stash id -- to apply specific stash
+if no stash id provided it will consider the latest stash by default
+git stash pop stashid
+
+git stash drop stashid-to drop a oarticular stash
+git stash clear- to clear all the stashes
+
+Git Diff:
+git diff to show difference between working directory and staging area
+
+wd		SA		repo
+colors.txt	oldcolors.txt	oldcolors.txt
+copy.java	oldcopy.java	oldcopy.java
+
+copy.java	colors.txt
+
+git diff HEAD- to see difference between wd and repo
+
+git diff --staged to see difference between SA and repo
+
+git diff commit commit2
+git diff branch1 branch2
+
+git restore
+to revert the chnges from wd-git restore filename
+to revert the changes from SA-git restore --staged filename
+
+git reset
+soft reset-- git reset commitid - removes the commits and the wchanges are still available in wd
+hard reset- git reset --hard commitid-removes the commits and also the wrk done as part of those commits from wd,sa,repo 
+
+git revert:
+
+To revet the work done as part of specific commit
+in this process the log is not deleted and in-addition to this an additional commit is generated for this reverting process
+
+git checkout:
+
+1)to switch to a different branch (git checkout branchname)
+2)to revert the changes form the wrking directory for a particular file( git checkout filename)
+3)to revert changes from multiple files from the wd (git checkout HEAD)
+4)to go back to a particular commit (git checkout commitid)
+
+Detached Head:
+when your HEAD is directly pointing to a commit id rather than the branchanme(git checkout commitid, when we travel back in time to a psecific commit)
+
+To go back to attached head state-->git switch branchname
+
+GITHUB:
+cloud hosting platform for repositories
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

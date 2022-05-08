@@ -1,0 +1,325 @@
+what is os?
+5 + 2
+
+5=1001
+2=0010
+
+1001
+0010
+
+1011=7
+
+5+2=7
+os is nothing but a software
+Linux,Windows,MacOS
+
+2)OS layers
+
+Application
+Shell
+Kernel
+Hardware
+
+3)GUI v/c CLI
+GUI-graphical user interface eg:windows
+CLI-command line interface
+
+Windows                              Linux
+GUI 				      CLI
+single user system		multi user system
+less security			highly secured with the help of permissions
+D:\Mamatha_GRK\Documents	D:/Mamatha_GRK/Documents
+
+types of users:
+1.Normal user/default user
+2.Root user
+3.Super user
+
+sudo mkdir directory name
+
+linux directory structure
+bin-contains all binaries
+boot-files required to boot the system are present here
+dev-device files, files generated during boot process and any additional device related files
+etc-all system related config files
+/home:personal files and directories
+/opt-software to be installed
+
+
+
+
+
+
+Commands
+1. pwd-present working directory, shows our current working directory path
+
+Shell Builtin: across shells
+Bash Builtin: only specific to bah
+
+
+different types of shells-
+bash
+sh
+corn shell
+k shell
+
+2)man-to see manual of a particular command
+info-same as above
+help-displays only manual of bash builtin
+
+3)clear-clears the terminal
+
+directory creation:
+mkdir dname- to create a directory
+mkdir dir1 dir2 dir3 dir4..... --->to create multiple directories
+mkdir -p host/host1/host2/host3/host4 -->herarchical directory creation
+
+directory deletion:
+1)empty directory: rmdir dname
+2)non-empty directory: rm -r dname
+
+directory rename:
+mv olddirname newdirname
+
+echo-to display contents on to terminal
+
+file creation:
+
+1) touch fname
+touch file1 file2 file3 file4
+2) vi
+data entry mode/insert mode- i
+command mode: esc
+close file: esc :wq -write and quit
+	    esc	:q-quit
+	    esc :q! -quit and override
+
+file rename:
+
+mv oldfilename newfilename
+
+file deletion:
+ rm filename
+
+cat-concatenate data on to screen
+ cat -n ilename -->to display content with numbers
+
+tree package- to see all the files and directories recursively
+
+cd-change directory
+
+Absolte path-exact location
+relative path-telling location in reference to something
+
+. --current directory
+cd .. --parent directory
+cd - previous working directory
+cd / -to change to root directory
+cd ~ -to change to users home directory
+
+ls- to list contents of a particular path
+ls -a to see all files including hidden files
+ls -l -->to list in long listing format
+
+drwxrwxr-x 2 ec2-user ec2-user 90 Apr 15 03:25 sample
+permissions
+number of links
+user/owner
+group name
+size of the file
+month
+date
+time
+filename
+
+ls -h to see file size in human readable format
+
+ls -lt to sort based on time latest to oldest
+ls -ltr t see files in reverse order of time
+
+Permissions:
+
+drwxrwxr-x-->10 fields
+1. d/-/l (type fo file)
+d-directory
+--normal file
+l-linked file
+
+rwxrwxr- ==>774
+
+2,3,4 -->user permissions
+5,6,7-->group permissions
+8,9,10-->others permissions
+
+rwx
+r-read-4
+w-write-2
+x-execute-1
+
+user-rwx-4+2+1=7
+group-rwx-4+2+1=7
+others-r-x=4+0+1=5
+
+chmod-to change permissions
+
+rwx-user-7
+r-x-group-5
+r---others-4
+
+chmod 754 filename
+
+-rw-rw-r-- 
+chmod u+x filename
+chmod g+x filename
+chmod o+r filename
+chmod u+rwx filename
+chmod g+wx filename
+chmod u-x filename
+chmod o-rwx filename
+
+
+copy-to copy files
+cp- to copy and paste
+mv-cut and paste
+
+more-to see data in a file page by page
+
+head-displays frst 10 lines in afile
+tail-last 10 lines
+
+head -4 filename frst 4 lines
+tail -4 filename last 4 lines
+ history-gives list of all commands we ran from the start of instance
+!command number-to tun specific command in history
+
+word count-wc
+wc filename
+wc -l filename for linecount
+wc -w filename for word count
+wc -c filename for character count
+
+hostname-displays server hostname
+ip address/hostname -I -->diaplays ip address of the system
+arch -to disply server architecture
+whoami-diaplys the user name
+id -to display my user id
+id username-to display other user's user id
+who-displays who is currently looged on onto the server
+last-displays the list of all users who have logged into the server till now from the start of the instance
+ps-list od processes running on ur system
+top-displays all processes including internal process with additional info
+
+how to give sudo sccess
+editing sudoers file which is present in etc folder
+
+only root user or another sudo user can give sudo permissions to a normal user
+
+switch users:
+
+su - -->to switch to root user
+su username -->to switch to a different user
+
+passwd - to change password of root user
+passwd username-->to change password a different user
+
+only root user can change passwrd of any user
+
+chown-->to change ownership
+
+output redirection:
+
+>>  appends to the exiting file
+> overrides the existing file
+
+environment variables:
+variable-->storage space
+
+variable definition:
+key-value pair
+key-name of the variable
+value-what you are storing in variable
+variable call: $Variablename
+
+to see all environment variables:
+env
+
+to set env variable:
+define a variable
+export variable name
+open .bashrc and add export varibale name
+
+User Administration
+a)user creation
+user can be created in 2 ways
+1)default option
+
+create user based on the default template availabel at /etc/default/useradd
+default options:
+group:100
+shell:/bin/bash
+home:/home/
+2)customised option
+useradd -c "comments" username -->to give comments
+useradd -m -d /home/abc/xyz username-->to give home directory of our choice
+useradd -s /bin/sh username -->to give shell of our choice
+
+b)user modification:
+
+usermod username
+
+c)user deletion
+
+userdel username
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

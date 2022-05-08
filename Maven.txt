@@ -1,0 +1,128 @@
+why Build Tool?
+compiled language
+ eg:java 
+
+Desktop/sample.java
+Desktop/sample.class
+
+sample.java
+system.out.println("Hello, Good Morning")
+
+javac sample.java -->Compilation(1 min)
+java sample -->execution (1 min)
+
+Interpreted Language
+eg: python
+
+sample.py
+print("Hello, Good evening")
+print("welcome")
+
+sample-->execution (2 min)
+
+
+software project(whatsapp)
+5k-50k lines of code
+whatsapp.java
+200 lines of code--->single java file
+
+250 java files
+maven-->build tool
+
+250 java files--->single jar file
+
+java -jar whatsapp.jar--->execution/deployment/application start
+
+
+
+Java Architecture
+Core java
+Advanced Java
+servlets
+hibernate
+spring
+spring boot
+ejb
+
+
+
+jdk+jre-->installation
+
+
+
+pom.xml
+
+
+src
+ 1)main
+     a)java
+     b)resources
+ 2)test
+     a)java
+
+
+src
+  1)main
+	a)java
+    		a)com
+			a)flipkart
+				a)App.java
+  2)test
+ 	a)java
+		a)com
+			a)flipkart
+				a)AppTest.java
+
+jar-->java archive-->springboot
+war-->web archive-->jsp,servlets
+ear-->enterprise archive-->ejb,hibernate
+
+Apache Maven--->java based application-->open-source build tool
+pre-requisites:
+jdk
+1.7 or higher version
+
+maven life cycles-2 types
+1)Default Lifecycle
+	a)compile stage-->convert .java files to .class files of main directory only
+	b)test-compile stage-->convert .java files to .class files of test directory only
+	c)test stage-->executes unit test cases and it will provide results
+	d)package-->packages the code in to a executable archives
+2)clean Lifecycle
+	a)clean stage-->cleans up all the files generated int he previous cycle
+
+
+maven commands:
+
+mvn compile-->compile
+mvn test-compile-->compile+test-compile
+mvn test-->compile+test-compile+test
+mvn package-->compile+test-compile+test+package
+mvn clean-->clean
+
+mvn clean package
+
+mvn clean package -Dmaven.test.skip=true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

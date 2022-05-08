@@ -1,0 +1,206 @@
+shebang line 
+#!/bin/sh-->path to the interpreter
+
+#-sharp
+!-bang
+sharp+bang
+she-bang
+
+by default no file comes with executable permissions
+we have to provide executable permissions to a script
+
+how to execute script:
+1) if the script is present int he same path where you are trying to execute it then 
+./scriptname
+if script is present in parent directory
+../scriptname
+if script is present somewhere else
+/home/ec2-user/data/user/abc/scriptname
+
+variables:storage location, key-value pair, key-variable name, value-value/data stored in the variable
+definition:
+KEY=value; NAME="Mamatha"
+call:
+$variablename
+${Variablename}
+
+Wild characters:
+*:zero or more chars
+?:exactly one character
+[bcd]-character class, exactly one position and that position can be filled with either b or c or d
+[!bcd]-fills one position and that position should not be filled with b or c or d
+[a-z]-range class, exactly fills one position, but it can be anything between a to z
+
+Named character class
+[[:alpha:]] -->only one substitution and includes lowercase and upper case alphabets
+[[:alnum:]]-->lower case+upper case+digits
+[[:digit:]]-->digits
+[[:upper:]]-->upper case
+[[:lower:]]-->lower case
+[[:space:]]-->white spaces,tab,next line
+
+if statement:
+
+if [condition]
+then
+	sttements
+fi
+
+if-else
+
+if [condition]
+then 
+	statement
+else
+	statements
+fi
+
+if-else-if
+
+if [condition]
+then
+	stmnts
+elseif [condition]
+then 	
+	stmnts
+else
+	stmnts
+fi
+
+Tests:
+
+file operators:
+
+1) [-d ./abc] -->checks if it is a directory or not
+2) -e -->to check if a file exists
+3)-f -->check if a file exists and also it should be a regualr file
+4)-r -->checks if a file/directory exists, and also it should have read permissions at user level
+5)-s -->if a file exists and it should not be empty
+6)-w -->file exists and it is writable
+7)-x-->file exists and it is executable
+
+string operators
+
+1) -z , true if string is empty
+2) -n, true if string is non empty
+3) == if both strings are equal
+4) != if both the strings are not equal
+
+arithmetic operators:
+
+1) -lt lessthan
+2) -gt greater than
+3) -le less than or equal to
+4) -ge greater than or equal to
+5) -eq compairion eqauls to
+6) -ne comparision not equals to
+7) (( arg1 > arg2 )) -->double braces when using symbols >, <, >=, <=
+
+For Loop:
+
+1)for $Variable in arg1 arg2 arg3
+  do
+	stmnts
+  done
+2)VARIABLE="arg1 arg2 arg3"
+  for abc in $VARIABLE
+  do
+    stmtns
+  done
+
+Positional Parameters:
+
+$0-->script name
+$1 frst argument
+$2 second arg
+$3 third arg
+$# total no of args
+$@ all args
+$* all args 
+
+Exit Status:
+exit status range 0-255
+0-if comand executes properly as per the process
+1-255 if the command doesnot execute or if it throws some error
+$?
+
+Multiple command execution:
+echo "this is afile" ; cat abc.txt ; cat 123.txt
+with semicolon as seperator
+
+logical AND:
+&&
+ command1 && command 2 -->command2 executes only if command1 executes and gives exit status as zero
+
+Logical OR:
+||
+command1 || command2 -->either of them executes
+
+Functions:
+function definition:
+1) function function_name()
+	{
+		stmnts
+	}
+2)function_name()
+	{
+		stmmnts
+	}
+
+function call:
+#!/bin/bash
+echo...
+function_name
+
+function calling function:
+
+
+Global Variable:
+
+it can be declared outside or inside the function, but can be accessed only after the function call
+
+Local Variable:
+
+syntax: local vARIABLE_NAME
+
+it cannot be accessed outside the function
+
+While Loop:
+
+while [ condition is true ]
+do
+	stmnts
+done
+
+case statement:
+
+
+VAR="one"
+case "$VAR" in
+        "one") echo " My variable is $VAR " ;;
+        "two") echo "My variable is $VAR " ;;
+        "three") echo "My variable is $VAR " ;;
+        *) echo " Random variable is $VAR" ;;
+esac
+
+Debugging:
+
+1) -x --> prints commands as they execute
+a)to set up debugging for entire script
+pass -x in shebang line
+b)to setup deubugging only from specific point till end of the script
+pass set -x at that point
+c) to setup debugging only for some portion of script
+pass set -x at strting point
+pass set +x at ending point
+
+2)-e -->exits from script when there is a error/when exit status is not equal to 0
+can be passed similar to -x option
+
+3)-v -->prints shell input lines as they are read.
+
+4)PS4 variable
+PS4='+$BASH_SPURCE:$LINENO:'
+
+Stream Editor:
+

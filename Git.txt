@@ -222,17 +222,35 @@ To go back to attached head state-->git switch branchname
 GITHUB:
 cloud hosting platform for repositories
 
+Github account creation
+
+README file: extension-->README.md
+
+creating new repo on github and then cloning it to local
+creating a repo locally and then pushing it to github
+1)create a repo in github with the same local repo's name
+2)add remote
+3)set upstream
+
+Remote
+setting remote
+
+git clone
+git push
+git pull
+git fetch
+
+workflows/branching strategies
+1)Release branching strategy
+2)Feature branching strategy
+3)Github workflow
+
+Forking
+
+Pull Requests
 
 
-
-
-
-
-
-
-
-
-
+ 
 
 
 
